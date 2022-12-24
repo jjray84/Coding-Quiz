@@ -1,0 +1,43 @@
+* {
+    background-color: lightcyan;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    color: black;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid black;
+}
+
+.underh1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.rules {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
