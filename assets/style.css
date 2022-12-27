@@ -20,6 +20,7 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .home {
@@ -43,8 +44,16 @@ div {
     font-size: 20px;
 }
 
-.start {
+h2 {
     display: flex;
     justify-content: center;
-    align-items: center;   
+    font-style: oblique;
+    font-size: 25px;
+}
+
+ol {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    padding-left: 10px;
 }
