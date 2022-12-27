@@ -1,13 +1,12 @@
 // These are the different variables that I will use
-var time = 75;
-var timer;
+var time = 75;  //amount of time for the quiz
+var timer;  //for the timer to move
 var questionPool; [q1, q2, q3, q4, q5];
-var scores;
-var finish = false;
-var button1 = createButton("btn1");
-var button2 = createButton("btn2");
-var button3 = createButton("btn3");
-var button4 = createButton("btn4");
+var scores; //to show score list
+var button1 = createButton("btn1"); //These are for selection of answers
+var button2 = createButton("btn2"); //These are for selection of answers
+var button3 = createButton("btn3"); //These are for selection of answers
+var button4 = createButton("btn4"); //These are for selection of answers
 
 
 // This is the list of questions for the variable questionPool.
