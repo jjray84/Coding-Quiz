@@ -7,6 +7,7 @@
     <title>Coding Quiz</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
     <nav>
         <a href="./highscores.html">
@@ -24,15 +25,14 @@
             </div>
 
             <div class="rules">
-                <p>Correct answers will add 3 seconds to your time, but wrong answers will penalize you by 7 seconds!</p>
+                <p>Each wrong answer will penalize your time by 10 seconds.</p>
             </div>
 
-            <div class="start">
-                <input type="button" value="Start" onclick="startQuiz()">
-            </div>    
+            <!-- Start Quiz Button -->
+            <div><button class="start-button">Start</button></div>    
               
         </div>
     </main>
-    
+   <script src="./assets/script.js"></script> 
 </body>
 </html>

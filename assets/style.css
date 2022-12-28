@@ -51,9 +51,16 @@ h2 {
     font-size: 25px;
 }
 
-ol {
+.start-button {
+    background-color: purple;
+    border-radius: 12px;
+    font-size: 30px;
+    color: white;
+    padding: 20px;
+    margin: 4px 2px;
     display: flex;
-    justify-content: center;
-    justify-content: space-between;
-    padding-left: 10px;
+}
+
+.start-button:hover {
+    background-color: rgb(136, 89, 136);
 }
