@@ -48,7 +48,10 @@ h2 {
     display: flex;
     justify-content: center;
     font-style: oblique;
-    font-size: 25px;
+    font-size: 30px;
+    padding-left: 40px;
+    border-bottom: 3px solid black;
+    padding-bottom: 10px;
 }
 
 .start-button {
@@ -64,3 +67,27 @@ h2 {
 .start-button:hover {
     background-color: rgb(136, 89, 136);
 }
+
+input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    border-radius: 12px;
+    font-size: 30px;
+    color: white;
+    padding: 10px;
+    margin: 4px 2px; 
+}
+
+a:link {
+    text-decoration: none;
+}
+
+input:hover {
+    background-color: rgb(136, 89, 136);
+}
+
+/* .a:link {
+    text-decoration: none;
+} */

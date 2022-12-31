@@ -1,10 +1,12 @@
 // These are the different variables that I will use 
 var start = document.querySelector(".start-button");  //for the timer to move
-var button = document.querySelector(".start-button");
+var button = document.querySelector(".start-button"); //not sure why, but both of these are needed for the timer to start.
 var timer = document.querySelector("#timer");
 var secondsLeft = 75
+var score = 0;
+var isRight = false;
 
-// This is the list of questions for the variable questionPool array.
+// This is the list of questions.
 var questionPool = [
     {
        text: "Arrays in Javascript can be used to store ______.",
@@ -15,7 +17,7 @@ var questionPool = [
     {
         text: "String values must be enclosed within ______ when being assigned to variables.",
         choices: ["1 - Quotes", "2 - Curly Brackets", "3 - Commas", "4 - Parentheses"],
-        correctAnswer: "option0",
+        correctAnswer: "option2",
     },
 
     {
@@ -45,7 +47,6 @@ function setTime() {
       if(secondsLeft === 0) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
-        // Calls function to create and append image
         sendMessage();
       }
   
@@ -57,6 +58,7 @@ start-button.addEventListener("click", function() {
     setTime();
 } )
 
+//These are the individual questions.
 function questionOne() {
     questionPool[0];
     console.log(questionPool[0].text);
@@ -91,3 +93,42 @@ function questionFive() {
 }
 
 questionFive();
+
+function addElement(index) {
+  var newPara = document.createElement("p");
+  newPara.className = "newQuestion";
+  var newUl = document.createElement("ul");
+  newPara.textContent = questionOne[index].q;
+  for (let i = 0; i < questionPool.length; i++);
+  var newLi = textContent = questionPool.choices[i];
+  newUl.appendChild(newLi);
+  questionPool.append(newPara, newUl);
+  document.querySelectorAll("li").forEach((li)=> {
+    aEL(li, index)
+  })
+}
+
+//aEL means adding an event listener.
+function aEL(element, index) {
+  element.addEventListener("click", () => {
+    var correctAnswer = element.textContent;
+    
+    //checks for correct answer
+    checkWin(correctAnswer, index);
+
+    //checks if all questions have been gone through
+    if (index + 1 === questionPool.length) {
+      //to show score and leave initials or name
+      scorePage();
+
+      //stops the timer after last question
+      clearInterval(timer);
+      countdown = 0;
+      setTimeText();
+    } else { //continues through next question
+      questionPool.innerHTML = " ";
+      addElement(index + 1);
+    }
+  })
+}
+
