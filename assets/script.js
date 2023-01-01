@@ -9,33 +9,37 @@ var isRight = false;
 // This is the list of questions.
 var questionPool = [
     {
-       text: "Arrays in Javascript can be used to store ______.",
-       choices: ["1 - Numbers and strings", "2 - Other Arrays", "3 - Booleans", "4 - All of the above",],
-       correctAnswer: "option3",
+       question: "Arrays in Javascript can be used to store ______.",
+       options: ['Numbers and Strings', 'Other Arrays', 'Booleans', 'All of the above'],
+       correctAnswer: 'All of the above',
     },
 
     {
-        text: "String values must be enclosed within ______ when being assigned to variables.",
-        choices: ["1 - Quotes", "2 - Curly Brackets", "3 - Commas", "4 - Parentheses"],
-        correctAnswer: "option2",
+        question: "String values must be enclosed within ______ when being assigned to variables.",
+        options: ['Commas', 'Curly Braces', 'Quotes', 'Parentheses'],
+
+        correctAnswer: 'Curly Braces',
     },
 
     {
-        text: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        choices: ["1 - Javascript", "2 - console.log", "3 - Terminal/bash", "4 - For loops"],
-        correctAnswer: "option1",
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        options: ['JavaScript', 'Terminal/Bash','for loops', 'console.log()'],
+
+        correctAnswer: 'console.log()',
     },
 
     {
-        text: "Commonly used data types do NOT include:",
-        choices: ["1 - Booleans", "2 - Alerts", "3 - Strings", "4 - Numbers"],
-        correctAnswer: "option1",
+        question: "Commonly used data types do NOT include:",
+        options: ['Strings', 'Booleans', 'Alerts', 'Numbers'],
+
+        correctAnswer: 'Booleans',
     },
 
     {
-        text: "The condition of an if/else statement is enclosed within ______.",
-        choices: ["1 - Quotes", "2 - Curly Brackets", "3 - Parentheses", "4 - Square Brackets"],
-        correctAnswer: "option2",
+        question: "The condition of an if/else statement is enclosed within ______.",
+        options: ['Quotes', 'Curly Braces', 'Parentheses', 'Square Brackets' ],
+
+        correctAnswer: 'Curly Braces',
     },
 ]  
 
@@ -55,80 +59,64 @@ function setTime() {
 
 start-button.addEventListener("click", function() {
     console.log("Timer");
+    addElement(0)
     setTime();
 } )
 
-//These are the individual questions.
-function questionOne() {
+
+
+
+
+//These are the individual questions. 
+function question1() {
     questionPool[0];
-    console.log(questionPool[0].text);
+    console.log(questionPool[0].question);
 }
 
-questionOne();
+question1();
 
-function questionTwo() {
+function question2() {
   questionPool[1];
-  console.log(questionPool[1].text);
+  console.log(questionPool[1].question);
 }
 
-questionTwo();
+question2();
 
-function questionThree() {
+function question3() {
   questionPool[2];
-  console.log(questionPool[2].text);
+  console.log(questionPool[2].question);
 }
 
-questionThree();
+question3();
 
-function questionFour() {
+function question4() {
   questionPool[3];
-  console.log(questionPool[3].text);
+  console.log(questionPool[3].question);
 }
 
-questionFour();
+question4();
 
-function questionFive() {
+function question5() {
   questionPool[4];
-  console.log(questionPool[4].text);
+  console.log(questionPool[4].question);
 }
 
-questionFive();
+question5();
+
+
+
 
 function addElement(index) {
-  var newPara = document.createElement("p");
-  newPara.className = "newQuestion";
-  var newUl = document.createElement("ul");
-  newPara.textContent = questionOne[index].q;
-  for (let i = 0; i < questionPool.length; i++);
-  var newLi = textContent = questionPool.choices[i];
-  newUl.appendChild(newLi);
-  questionPool.append(newPara, newUl);
-  document.querySelectorAll("li").forEach((li)=> {
-    aEL(li, index)
-  })
-}
+  var currentQuestion = questionPool[index]
+ var title = document.createElement("h1");
+ title.innerText = currentQuestion.question
 
-//aEL means adding an event listener.
-function aEL(element, index) {
-  element.addEventListener("click", () => {
-    var correctAnswer = element.textContent;
-    
-    //checks for correct answer
-    checkWin(correctAnswer, index);
+ document.querySelector('#quiz').append(title)
+ 
+ for(let i = 0; i < currentQuestion.options.length; i++){
+   const btn = document.createElement('button')
 
-    //checks if all questions have been gone through
-    if (index + 1 === questionPool.length) {
-      //to show score and leave initials or name
-      scorePage();
-
-      //stops the timer after last question
-      clearInterval(timer);
-      countdown = 0;
-      setTimeText();
-    } else { //continues through next question
-      questionPool.innerHTML = " ";
-      addElement(index + 1);
-    }
-  })
-}
-
+   btn.innerText = currentQuestion.options[i];
+   document.querySelector('#quiz').append(btn)
+ }
+};

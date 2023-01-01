@@ -88,6 +88,12 @@ input:hover {
     background-color: rgb(136, 89, 136);
 }
 
-/* .a:link {
-    text-decoration: none;
-} */
+#submit {
+    background-color: purple;
+    border-radius: 12px;
+    font-size: 30px;
+    color: white;
+    padding: 20px;
+    margin: 4px 2px;
+    display: flex;
+}
