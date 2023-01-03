@@ -94,16 +94,18 @@ input:hover {
     background-color: rgb(136, 89, 136);
 }
 
-#submit {
+
+#back {
     background-color: purple;
     border-radius: 12px;
-    font-size: 30px;
+    font-size: 20px;
     color: white;
-    padding: 20px;
+    padding: 15px;
     margin: 4px 2px;
     display: flex;
 }
- #back {
+
+#clear {
     background-color: purple;
     border-radius: 12px;
     font-size: 20px;
@@ -111,34 +113,24 @@ input:hover {
     padding: 15px;
     margin: 4px 2px;
     display: flex;
- }
+}
 
- #clear {
-    background-color: purple;
-    border-radius: 12px;
-    font-size: 20px;
-    color: white;
-    padding: 15px;
-    margin: 4px 2px;
-    display: flex;
- }
-
- #list {
+#list {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 25px;
- }
+}
 
- #initials {
+#initials {
     background-color: azure;
     justify-content: center;
     align-items: center;
     font-size: medium;
     color: black;
- }
+}
 
- #submit {
+#submit {
     background-color: purple;
     border-radius: 12px;
     font-size: 20px;
@@ -146,11 +138,27 @@ input:hover {
     padding: 15px;
     margin: 4px 2px;
     display: flex;
- }
+}
 
- #quiz {
+#quiz {
     display: flex;
     justify-content: center;
     align-items: center;
     display: grid;
- }
+}
+
+.userInit {
+    font-size: 20px;
+}
+
+button {
+    background-color: purple;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    padding: 20px;
+    margin: 4px 2px;
+    display: flex;
+    max-width: 300px;
+    
+}
