@@ -1,21 +1,23 @@
-// var score;
-// var ol = document.querySelector('ol');
-// var btnBack = document.querySelector("#back");
-// var btnClear = document.querySelector("#clear");
+var score;
+var ul = document.querySelector('ul');
+var btnBack = document.querySelector("#back");
+var btnClear = document.querySelector("#clear");
+var storage = JSON.parse(localStorage.getItem('scores')) || [];
 
-// if (localStorage.length !== 0) {
-//     for (let i = 0; i < localStorage.length; i++) {
-//         let li = document.createElement("li");
-//         li.textContent = "`${i + 1}. ${localStorage.key(i)} --- ${localStorage.getItem(localStorage.key(i))}`"
-//         ol.appendChild(li);
-//     }
-// }
+if (storage) {
+    for (let i = 0; i < storage.length; i++) {
+        let currentScore = storage[i];
+        let li = document.createElement("li");
+        li.innerHTML = `<b>${currentScore.name}:</b> ${currentScore.score}`;
+        ul.appendChild(li);
+    }
+}
 
-// btnBack.addEventListener("click", () => {
-//     window.location.href = "./index.html";
-// })
+btnBack.addEventListener("click", () => {
+    window.location.href = "./index.html";
+})
 
-// btnClear.addEventListener("Click", () => {
-//     localStorage.clear();
-//     ol.textContent = "";
-// })
+btnClear.addEventListener("click", () => {
+    localStorage.clear();
+    ul.textContent = "";
+})
