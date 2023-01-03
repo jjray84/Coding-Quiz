@@ -121,10 +121,10 @@ function endQuiz() {
   clearInterval(timerInterval);
   timer.textContent = secondsLeft
   document.getElementById("quiz").innerHTML = `
-  <div>
+  <div id="userInitials">
     <p>Please enter your initials</p>
     <input type="text" maxlength="3" id="initials">
-    <button onclick="submitScore()">Submit Score</button>
+    <button onclick="submitScore()" id="submit">Submit Score</button>
   </div>
   `
 }

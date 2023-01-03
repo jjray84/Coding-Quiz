@@ -97,3 +97,47 @@ input:hover {
     margin: 4px 2px;
     display: flex;
 }
+ #back {
+    background-color: purple;
+    border-radius: 12px;
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+    margin: 4px 2px;
+    display: flex;
+ }
+
+ #clear {
+    background-color: purple;
+    border-radius: 12px;
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+    margin: 4px 2px;
+    display: flex;
+ }
+
+ #list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+ }
+
+ #initials {
+    background-color: azure;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    color: black;
+ }
+
+ #submit {
+    background-color: purple;
+    border-radius: 12px;
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+    margin: 4px 2px;
+    display: flex;
+ }
