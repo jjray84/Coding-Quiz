@@ -76,14 +76,14 @@ function checkAnswer(userAnswer) {
   } else {
     displayQuestion();
   }
-}
+};
 
 function displayQuestion() {
   var currentQuestion = questionPool[currentQuestionIndex]
- var title = document.createElement("h1");
- title.innerText = currentQuestion.question
- document.getElementById("quiz").innerHTML = "";
- document.querySelector('#quiz').append(title)
+  var title = document.createElement("h1");
+  title.innerText = currentQuestion.question
+  document.getElementById("quiz").innerHTML = "";
+  document.querySelector('#quiz').append(title)
  
  for(let i = 0; i < currentQuestion.options.length; i++){
    const btn = document.createElement('button')
@@ -115,7 +115,7 @@ function submitScore() {
       localStorage.setItem('scores', JSON.stringify(previousScores));
       window.location.href="highscores.html"   
     }
-} 
+};
 
 function endQuiz() {
   clearInterval(timerInterval);
@@ -127,4 +127,4 @@ function endQuiz() {
     <button onclick="submitScore()" id="submit">Submit Score</button>
   </div>
   `
-}
+};
