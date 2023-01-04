@@ -65,16 +65,23 @@ button.addEventListener("click", function() {
     displayQuestion();
 } )
 
-function checkAnswer(userAnswer) {
+function checkAnswer(event, userAnswer) {
   console.log(userAnswer);
   if (userAnswer !== questionPool[currentQuestionIndex].correctAnswer) {
     secondsLeft -= 10;
-  } 
+    event.target.setAttribute('style', "background-color: red");
+  } else {
+    event.target.setAttribute('style', "background-color: green");
+  }
+
   currentQuestionIndex++;
   if (currentQuestionIndex == questionPool.length) {
     endQuiz();
   } else {
-    displayQuestion();
+    setTimeout(() => {
+      displayQuestion();
+    }, 1000)
+    // displayQuestion();
   }
 };
 
@@ -83,16 +90,20 @@ function displayQuestion() {
   var title = document.createElement("h1");
   title.innerText = currentQuestion.question
   document.getElementById("quiz").innerHTML = "";
-  document.querySelector('#quiz').append(title)
- 
+  document.querySelector('#quiz').append(title);
+  // document.createElement("div").append(options);
+  var div = document.createElement("div");
+  div.setAttribute("class", "selector");
+  document.querySelector('#quiz').append(div);
+
  for(let i = 0; i < currentQuestion.options.length; i++){
    const btn = document.createElement('button')
 
    btn.innerText = currentQuestion.options[i];
-   btn.onclick = function() {
-    checkAnswer(currentQuestion.options[i]);
+   btn.onclick = function(event) {
+    checkAnswer(event, currentQuestion.options[i]);
    }
-   document.querySelector('#quiz').append(btn)
+   div.append(btn);
  }
 };
 

@@ -141,10 +141,8 @@ input:hover {
 }
 
 #quiz {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: grid;
+    text-align: center;
+    margin: 2rem 30rem;
 }
 
 .userInit {
@@ -161,4 +159,11 @@ button {
     display: flex;
     max-width: 300px;
     
+}
+
+.selector {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 25%;
 }
