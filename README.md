@@ -8,7 +8,7 @@ Once you complete the quiz, you will be prompted to enter your initials for your
 
 ## Visuals
 
-![Alt text](Coding-Quiz/assets/Images/127.0.0.1_5501_Coding-Quiz_index.html.png)
+![Screenshot of coding quiz main page](assets/Images/127.0.0.1_5501_Coding-Quiz_index.html.png)
 
 ## Live Site Link
 
