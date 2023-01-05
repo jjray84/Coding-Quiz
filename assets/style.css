@@ -195,16 +195,16 @@ button:hover {
     }
 }
 
-@media (max-width: 500px) {
-    #quiz {
-        font-size: 1rem;
-        display: flex;
-        display: inline;
-    }
-    
+@media (max-width: 390px) {
     nav {
         font-size: 1rem;
         margin: 8px 0px 0px 0px;
         padding: 8px 12px;
+    }
+
+    #quiz {
+        font-size: 1rem;
+        display: flex;
+        display: inline;
     }
 }
