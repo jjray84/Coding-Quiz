@@ -1,12 +1,11 @@
 // These are the different variables that I will use 
-var start = document.querySelector(".start-button");  //for the timer to move
-var button = document.querySelector(".start-button"); //not sure why, but both of these are needed for the timer to start.
+var button = document.querySelector(".start-button"); 
 var timer = document.querySelector("#timer");
 var secondsLeft = 75
 var score = 0;
-var isRight = false;
 var currentQuestionIndex = 0;
 var timerInterval;
+
 
 // This is the list of questions.
 var questionPool = [
@@ -42,29 +41,30 @@ var questionPool = [
 ]  
 
 console.log(questionPool);
-
+//This function sets the timer to count down 1 second at a time.
 function setTime() {
     // Sets interval in variable
       timerInterval = setInterval(function() {
       secondsLeft--;
-      timer.textContent = secondsLeft
+      timer.textContent = secondsLeft;
       if(secondsLeft <= 0) {
         // Stops execution of action at set interval
-        secondsLeft = 0 
-        timer.textContent = secondsLeft
+        secondsLeft = 0; 
+        timer.textContent = secondsLeft;
         endQuiz();
       }
   
     }, 1000);
   }
 
+//This function starts the timer on clicking start and displays the first question.
 button.addEventListener("click", function() {
     console.log("Timer");
     setTime();
-    // document.getElementById("quiz").innerHTML = "";
     displayQuestion();
 } )
 
+//This function checks for the correctness of the answer and changes the color of the selected button for a visual cue
 function checkAnswer(event, userAnswer) {
   console.log(userAnswer);
   if (userAnswer !== questionPool[currentQuestionIndex].correctAnswer) {
@@ -73,64 +73,64 @@ function checkAnswer(event, userAnswer) {
   } else {
     event.target.setAttribute('style', "background-color: green");
   }
-
+//This part will cycle through the question index of questionPool or end the quiz if the last question is answered.
   currentQuestionIndex++;
   if (currentQuestionIndex == questionPool.length) {
     endQuiz();
-  } else {
+  } else { //this sets a delay of 1 second to see the button color change
     setTimeout(() => {
       displayQuestion();
-    }, 1000)
-    // displayQuestion();
+    }, 1000);
   }
 };
 
+//This function created an <h1> in the HTML for the question to be displayed on the page
 function displayQuestion() {
-  var currentQuestion = questionPool[currentQuestionIndex]
+  var currentQuestion = questionPool[currentQuestionIndex];
   var title = document.createElement("h1");
-  title.innerText = currentQuestion.question
-  document.getElementById("quiz").innerHTML = "";
+  title.innerText = currentQuestion.question;
+  document.getElementById("quiz").innerHTML = ""; //takes the id of quiz from the HTML file and changes it to an empty string for the displayQuestion function to show
   document.querySelector('#quiz').append(title);
-  // document.createElement("div").append(options);
-  var div = document.createElement("div");
+  var div = document.createElement("div");//creates a div for the answers to populate in
   div.setAttribute("class", "selector");
   document.querySelector('#quiz').append(div);
 
- for(let i = 0; i < currentQuestion.options.length; i++){
-   const btn = document.createElement('button')
+ for(let i = 0; i < currentQuestion.options.length; i++){ //this loops through all of the options in questionPool to ensure each option is shown
+   const btn = document.createElement('button');
 
    btn.innerText = currentQuestion.options[i];
    btn.onclick = function(event) {
-    checkAnswer(event, currentQuestion.options[i]);
+    checkAnswer(event, currentQuestion.options[i]);//this will check if the answer is correct
    }
    div.append(btn);
  }
 };
 
+//This function will allow the user to input their initials for display on the score page.
 function submitScore() {
  var userName = document.getElementById("initials").value;
-    if (userName == "") {
+    if (userName == "") { //This will alert the user to input their initials if they leave the field blank
       alert("Please enter your initials");
     } else {
-      // [{name:xx, score:xx}] Array Objects
       var newScore = {
         "name":userName,
-        "score":secondsLeft
+        "score":secondsLeft,
       }
-      
+      //This pulls any scores in local storage, then allows them to be sorted with the new score, and displayed in numerical order based on score.
       var previousScores = JSON.parse(localStorage.getItem('scores')) || []; 
 
       previousScores.push(newScore);
       previousScores.sort(function (a,b) { return b.score-a.score});
 
       localStorage.setItem('scores', JSON.stringify(previousScores));
-      window.location.href="highscores.html"   
+      window.location.href="highscores.html";   
     }
 };
 
+//This function ends the quiz, stops the timer, and creates a new <div> for the initials to be placed and sets the max length of the user input to 3.
 function endQuiz() {
   clearInterval(timerInterval);
-  timer.textContent = secondsLeft
+  timer.textContent = secondsLeft;
   document.getElementById("quiz").innerHTML = `
   <div id="userInitials">
     <p class="userInit">Please enter your initials:</p>
