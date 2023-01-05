@@ -95,8 +95,8 @@ function displayQuestion() {
   div.setAttribute("class", "selector");
   document.querySelector('#quiz').append(div);
 
- for(let i = 0; i < currentQuestion.options.length; i++){ //this loops through all of the options in questionPool to ensure each option is shown
-   const btn = document.createElement('button');
+ for(var i = 0; i < currentQuestion.options.length; i++){ //this loops through all of the options in questionPool to ensure each option is shown
+   var btn = document.createElement('button');
 
    btn.innerText = currentQuestion.options[i];
    btn.onclick = function(event) {

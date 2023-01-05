@@ -5,9 +5,9 @@ var btnClear = document.querySelector("#clear");
 var storage = JSON.parse(localStorage.getItem('scores')) || [];
 
 if (storage) {
-    for (let i = 0; i < storage.length; i++) {
-        let currentScore = storage[i];
-        let li = document.createElement("li");
+    for (var i = 0; i < storage.length; i++) {
+        var currentScore = storage[i];
+        var li = document.createElement("li");
         li.innerHTML = `<b>${currentScore.name}:</b> ${currentScore.score}`;
         ul.appendChild(li);
     }
