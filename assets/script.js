@@ -30,7 +30,7 @@ var questionPool = [
     {
         question: "Commonly used data types do NOT include:",
         options: ['Strings', 'Booleans', 'Alerts', 'Numbers'],
-        correctAnswer: 'Booleans',
+        correctAnswer: 'Alerts',
     },
 
     {
@@ -67,6 +67,7 @@ button.addEventListener("click", function() {
 //This function checks for the correctness of the answer and changes the color of the selected button for a visual cue
 function checkAnswer(event, userAnswer) {
   console.log(userAnswer);
+  console.log(questionPool[currentQuestionIndex].correctAnswer);
   if (userAnswer !== questionPool[currentQuestionIndex].correctAnswer) {
     secondsLeft -= 10;
     event.target.setAttribute('style', "background-color: red");
@@ -95,12 +96,13 @@ function displayQuestion() {
   div.setAttribute("class", "selector");
   document.querySelector('#quiz').append(div);
 
- for(var i = 0; i < currentQuestion.options.length; i++){ //this loops through all of the options in questionPool to ensure each option is shown
+ for(let i = 0; i < currentQuestion.options.length; i++){ //this loops through all of the options in questionPool to ensure each option is shown
    var btn = document.createElement('button');
-
+console.log("in-forloop", currentQuestion.options[i]);
    btn.innerText = currentQuestion.options[i];
    btn.onclick = function(event) {
-    checkAnswer(event, currentQuestion.options[i]);//this will check if the answer is correct
+    console.log("on click", currentQuestion.options[i]);
+    checkAnswer(event, currentQuestion.options[i]); //this will check if the answer is correct
    }
    div.append(btn);
  }
